@@ -6,6 +6,7 @@ import { Menu, X, Trophy } from 'lucide-react'
 
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
+  { href: '#patrocinadores', label: 'Patrocinadores' },
   { href: '#carrera', label: 'La Carrera' },
   { href: '#entorno', label: 'El Entorno' },
   { href: '#clasificaciones', label: 'Clasificaciones' },

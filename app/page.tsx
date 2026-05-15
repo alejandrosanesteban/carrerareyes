@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import SponsorsSection from '@/components/SponsorsSection'
 import CarreraSection from '@/components/CarreraSection'
 import EntornoSection from '@/components/EntornoSection'
 import ClasificacionesSection from '@/components/ClasificacionesSection'
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <SponsorsSection />
       <CarreraSection />
       <EntornoSection />
       <ClasificacionesSection />
