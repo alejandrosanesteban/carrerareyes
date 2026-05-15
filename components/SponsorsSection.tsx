@@ -1,56 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, Heart, Coffee, Trophy, Truck, Shirt, Hotel, Utensils } from 'lucide-react'
 
 /*
-  NOTA: Cuando tengas logos reales, reemplaza los iconos Lucide por <Image>
-  apuntando a /public/sponsors/. Ejemplo:
+  NOTA: Cuando tengas logos reales, añade las imágenes a /public/sponsors/
+  y reemplaza el texto del nombre por un <Image>. Ejemplo:
 
-  { name: 'Ayuntamiento de Muros', tier: 'principal', logo: '/sponsors/ayuntamiento.png' }
-
-  En el renderizado, cambia <Icon ... /> por:
-  <Image src={sponsor.logo} alt={sponsor.name} width={120} height={60} className="object-contain" />
-  y añade `import Image from 'next/image'` arriba.
+  import Image from 'next/image'
+  ...
+  <Image
+    src="/sponsors/ayuntamiento.png"
+    alt={sponsor.name}
+    width={160}
+    height={80}
+    className="object-contain max-h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+  />
 */
 
 const sponsors = [
-  { name: 'Ayuntamiento de Muros', tier: 'principal', icon: Building2 },
-  { name: 'Café de Pravia', tier: 'colaborador', icon: Coffee },
-  { name: 'Deportes Asturias', tier: 'principal', icon: Trophy },
-  { name: 'Hostal el Nalón', tier: 'colaborador', icon: Hotel },
-  { name: 'Transportes del Cantábrico', tier: 'colaborador', icon: Truck },
-  { name: 'Ropa deportiva Norte', tier: 'colaborador', icon: Shirt },
-  { name: 'Restaurante la Rula', tier: 'colaborador', icon: Utensils },
-  { name: 'Asociación de Vecinos', tier: 'institucional', icon: Heart },
+  'Ayuntamiento de Muros',
+  'Café de Pravia',
+  'Deportes Asturias',
+  'Hostal el Nalón',
+  'Transportes del Cantábrico',
+  'Ropa deportiva Norte',
+  'Restaurante la Rula',
+  'Asociación de Vecinos',
 ]
-
-const tierConfig = {
-  principal: {
-    label: 'Patrocinador Principal',
-    cols: 'md:col-span-2 lg:col-span-2',
-    height: 'h-32',
-    iconSize: 'w-10 h-10',
-    bg: 'bg-primary/10 border-primary/30',
-    text: 'text-primary',
-  },
-  colaborador: {
-    label: 'Colaborador',
-    cols: '',
-    height: 'h-28',
-    iconSize: 'w-8 h-8',
-    bg: 'bg-white/5 border-white/10 hover:border-primary/30',
-    text: 'text-gray-400',
-  },
-  institucional: {
-    label: 'Apoyo Institucional',
-    cols: 'md:col-span-2 lg:col-span-2',
-    height: 'h-28',
-    iconSize: 'w-8 h-8',
-    bg: 'bg-white/5 border-white/10 hover:border-primary/30',
-    text: 'text-gray-400',
-  },
-}
 
 export default function SponsorsSection() {
   return (
@@ -75,29 +51,21 @@ export default function SponsorsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {sponsors.map((sponsor, index) => {
-            const config = tierConfig[sponsor.tier as keyof typeof tierConfig]
-            const Icon = sponsor.icon
-            return (
-              <motion.div
-                key={sponsor.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className={`relative flex flex-col items-center justify-center gap-3 rounded-2xl border p-6 transition-all duration-300 hover:scale-[1.02] group cursor-default ${config.cols} ${config.height} ${config.bg}`}
-              >
-                <Icon className={`${config.iconSize} ${config.text} group-hover:text-primary transition-colors`} />
-                <span className="text-white font-semibold text-sm md:text-base text-center leading-tight">
-                  {sponsor.name}
-                </span>
-                <span className="text-[10px] uppercase tracking-wider text-gray-500 absolute bottom-3">
-                  {config.label}
-                </span>
-              </motion.div>
-            )
-          })}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+          {sponsors.map((name, index) => (
+            <motion.div
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="flex items-center justify-center h-28 md:h-32 bg-white/5 border border-white/10 rounded-2xl hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-300 group cursor-default"
+            >
+              <span className="text-gray-400 font-semibold text-sm md:text-base text-center px-4 group-hover:text-white transition-colors">
+                {name}
+              </span>
+            </motion.div>
+          ))}
         </div>
 
         <motion.p
