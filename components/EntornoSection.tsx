@@ -97,6 +97,18 @@ export default function EntornoSection() {
           className="mt-12 p-6 bg-card rounded-xl border border-white/5"
         >
           <h3 className="font-display text-xl font-bold text-white mb-4">Cómo Llegar</h3>
+          <div className="rounded-xl overflow-hidden border border-white/10 mb-6">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899!2d-6.087!3d43.5525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMzJzAwLjAiTiA2wrAwNScxMy4yIlc!5e0!3m2!1ses!2ses!4v1234567890"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa de San Esteban de Pravia"
+            />
+          </div>
           <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-400">
             <div>
               <span className="text-white font-medium block mb-1">En coche</span>
